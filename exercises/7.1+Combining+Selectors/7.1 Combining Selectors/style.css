@@ -1,0 +1,25 @@
+/* Write your code here: */
+/* simple union relationship */
+h1, h2 {
+    color:blueviolet;
+}
+
+/* apply to all .done classes enclosed in .box tags */
+.box > .done {
+    color:firebrick;
+}
+
+/*apply to all li elements 1-layer enclosed in a div tag*/
+div li {
+    color:blue;
+}
+
+/* apply to elements satisfying both selectors */
+li.done {
+    color:seagreen;
+}
+
+/* compositioning the selector syntaxes */
+ul p.done {
+    font-size:0.5rem;
+}
