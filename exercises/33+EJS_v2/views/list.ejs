@@ -1,0 +1,25 @@
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1><%=listTitle%> TODO:</h1>
+    </div>
+    
+    <div class="box">
+        <% activities.forEach((activity)=> { %>
+        <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" name="checkbox" value="<%=activity._id%>" onChange="this.form.submit()"> 
+                <p><%=activity.name%></p> 
+            </div>
+            <input type="hidden" name="listName" value="<%=listTitle%>" onChange="this.form.submit()"></input>
+        </form>
+        <% }); %>
+
+        <form class="item" action="/" method="post">
+            What else have you been doing all day long?
+            <input type="text" name="newItem" placement="new item" autocomplete="off">
+            <button type="submit" name="list" value="<%=listTitle%>">+</button>
+        </form>
+    </div>
+    
+<%- include("footer") -%>
