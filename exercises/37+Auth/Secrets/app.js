@@ -114,6 +114,7 @@ app.post("/submit", (req, res)=>{
         console.log(`find ID error in the /submit route to check the user identity via request: ${err}`);
     });
 });
+
 // bcrypt.hash(req.body.password, saltRounds, (err, hash)=> {
 //     const newuser = new User({email:req.body.username, password:hash}); //level 3: irreversable hash
 //     newuser.save().then(()=>{
@@ -140,7 +141,6 @@ app.post("/register", (req, res)=>{
 //validate user credentials
 // const usrname = req.body.username;
 // const pwd = req.body.password;
-
 // User.findOne({email: usrname}).then((userMatched)=>{
 //     if(userMatched) {
 //         bcrypt.compare(pwd, userMatched.password, (error, result)=>{ //verify the password using bcrypt 
