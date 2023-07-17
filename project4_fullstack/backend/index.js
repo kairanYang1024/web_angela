@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("./database/database.js").connect();
 const express = require("express");
+const cors = require("cors");
 
 const app = express(); //instance of the package express
 const router = require("./routes/index");
@@ -10,6 +11,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json()); // middleware for parsing application/json, formerly body-parser
 app.use(express.urlencoded({ extended: true })); //for parsing HTML form data, formerly body-parser
+app.use(cors());
 
 app.get("/", (req, res)=>{
     res.send({msg:"meow"});

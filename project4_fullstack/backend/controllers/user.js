@@ -47,7 +47,8 @@ const createTransporter = async () => {
 
 const sendEmail = async ({email, username, res}) => {
     const confirmToken = encrypt(username); //create an unique confirmation token
-    const apiUrl = process.env.API_URL || "http://localhost:4000/api";
+    // const apiUrl = process.env.API_URL || "http://localhost:4000/api"; 
+    // 4000 is verify backend, 3000 is verify frontend
     
     //initialize the nodemailer using the developer's gmail credentials
     const Transport = await createTransporter();
@@ -57,7 +58,7 @@ const sendEmail = async ({email, username, res}) => {
         from:"Educative Fullstack Course App",
         to: email,
         subject: "email confirmation",
-        html: `Press the following link to verify your email: <a href=${apiUrl}/verify/${confirmToken}>Verification Link</a>`,
+        html: `Press the following link to verify your email: <a href=http://localhost:3000/verify/${confirmToken}>Verification Link</a>`,
     };
 
     //send the email to the registered user's inbox
@@ -176,7 +177,7 @@ exports.login = async (req, res) => {
             // save user token
             user.token = token;
 
-            // user
+            // return the user data to the frontend
             return res.status(200).json(user);
 
         } else {
